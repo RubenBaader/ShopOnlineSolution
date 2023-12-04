@@ -34,13 +34,13 @@ namespace ShopOnline.Api
                 app.UseSwaggerUI();
             }
 
-            app.UseCors(policy => 
-                policy.WithOrigins("http://localhost:7281", "https://localhost:7281")
-                .AllowAnyMethod()
-                .WithHeaders(HeaderNames.ContentType)
-            );
+			app.UseCors(policy =>
+				policy.WithOrigins("http://localhost:7281", "https://localhost:7281")
+				.AllowAnyMethod()
+				.WithHeaders(HeaderNames.ContentType)
+			);
 
-            app.UseHttpsRedirection();
+			app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

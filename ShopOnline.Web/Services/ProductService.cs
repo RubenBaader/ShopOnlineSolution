@@ -22,9 +22,20 @@ namespace ShopOnline.Web.Services
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                     {
-                        return default(ProductDto);
+                        return new ProductDto()
+                        {
+                            Id = 0,
+                            Name = "No Data",
+                            Description = "No Description Data",
+                            ImageURL = "",
+                            Price = 3242,
+                            Qty = 0,
+                            CategoryId = 0,
+                            CategoryName = "No Category"
+                        };
+                        //return default(ProductDto);
                     }
-
+                    Console.Write($"From ProductService: {response.Content}");
                     return await response.Content.ReadFromJsonAsync<ProductDto>();
                 }
                 else
