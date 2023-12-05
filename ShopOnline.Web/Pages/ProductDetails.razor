@@ -3,12 +3,12 @@
 
 @if (Product == null && ErrorMessage == null)
 {
-    <h3>Loading product details...</h3>
+    @* <h3>Loading product details...</h3> *@
+    <DisplaySpinner />
 }
 else if (ErrorMessage != null)
 {
-    //In production, this would be logged and a user friendly error message would be displayed instead
-    <h3 class="text-danger">Hello ERROR: @ErrorMessage</h3>
+    <DisplayError ErrorMessage="@ErrorMessage"/>
 }
 else
 {

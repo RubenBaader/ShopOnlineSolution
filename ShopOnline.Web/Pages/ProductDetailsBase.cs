@@ -9,7 +9,6 @@ namespace ShopOnline.Web.Pages
     {
         [Parameter]
         public int Id { get; set; }
-        //public int Id = 1;
 
         [Inject]
         public IProductService ProductService { get; set; }
@@ -22,18 +21,6 @@ namespace ShopOnline.Web.Pages
         {
             try
             {
-                //Product = new ProductDto()
-                //{
-                //    Id = 0,
-                //    Name = "No Data",
-                //    Description = "No Description Data",
-                //    ImageURL = "",
-                //    Price = 3242,
-                //    Qty = 0,
-                //    CategoryId = 0,
-                //    CategoryName = "No Category"
-                //};
-
                 Product = await ProductService.GetItem(Id);
             }
             catch (Exception ex)
