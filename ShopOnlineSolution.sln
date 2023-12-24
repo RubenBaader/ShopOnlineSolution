@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.Web", "ShopOnline.Web\ShopOnline.Web.csproj", "{87DA9F08-3D1E-440A-A8F5-60B272199440}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7F7D7E0C-68F0-43F1-A2D3-D9F24C0BD767} = {7F7D7E0C-68F0-43F1-A2D3-D9F24C0BD767}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopOnline.Api", "ShopOnline.Api\ShopOnline.Api.csproj", "{7F7D7E0C-68F0-43F1-A2D3-D9F24C0BD767}"
 EndProject

@@ -17,7 +17,7 @@ namespace ShopOnline.Web.Services
         {
             try
             {
-                var response = await httpClient.PostAsJsonAsync<CartItemToAddDto>("apy/ShoppingCart", cartItemToAddDto);
+                var response = await httpClient.PostAsJsonAsync<CartItemToAddDto>("api/ShoppingCart", cartItemToAddDto);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -46,7 +46,7 @@ namespace ShopOnline.Web.Services
         {
             try
             {
-                var response = await httpClient.GetAsync($"api/{userId}/GetItems");
+                var response = await httpClient.GetAsync($"api/ShoppingCart/{userId}/GetItems");
 
                 if (response.IsSuccessStatusCode)
                 {
