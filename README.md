@@ -14,7 +14,7 @@ Website: [Link](https://www.freecodecamp.org) \
 YouTube: [Link](https://www.youtube.com/@freecodecamp) \
 Wikipedia: [Link](https://en.wikipedia.org/wiki/FreeCodeCamp)
 
-### About Gavin Lon
+### About the Author
 Gavin Lon is a developer with over 20 years of experience, and part of the core team at freeCodeCamp. \
 YouTube: [Link](https://www.youtube.com/c/GavinLon) \
 Github: [Link](github.com/gavinlondigital) 
