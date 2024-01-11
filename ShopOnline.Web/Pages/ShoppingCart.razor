@@ -24,6 +24,10 @@ else
                         <h5>@item.ProductName</h5>
                         <div class="mb-4">@item.ProductDescription</div>
                         <span>@item.Price.ToString("C") </span>
+                        <div>
+                            <button @onclick ="(() => DeleteCartItem_Click(item.Id))"
+                            class="btn btn-danger sm">Remove</button>
+                        </div>
                     </div>
                 </div>
 
