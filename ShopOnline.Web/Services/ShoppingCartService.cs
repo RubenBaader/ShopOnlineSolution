@@ -10,12 +10,14 @@ namespace ShopOnline.Web.Services
     public class ShoppingCartService : IShoppingCartService
     {
         private readonly HttpClient httpClient;
+        public event Action<int> OnShoppingCartChanged;
 
         public ShoppingCartService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
 
+        
         public async Task<CartItemDto> AddItem(CartItemToAddDto cartItemToAddDto)
         {
             try
@@ -91,7 +93,13 @@ namespace ShopOnline.Web.Services
                 throw;
             }
         }
-
+        public void RaiseEventOnShoppingCartChanged(int totalQty)
+        {
+            if (OnShoppingCartChanged != null)
+            {
+                OnShoppingCartChanged.Invoke(totalQty);
+            }
+        }
         async Task<CartItemDto> IShoppingCartService.UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
         {
             try
@@ -113,5 +121,7 @@ namespace ShopOnline.Web.Services
                 throw;
             }
         }
+
+        
     }
 }
