@@ -26,9 +26,16 @@ else
                             <h5>@item.ProductName</h5>
                             <div class="mb-4">@item.ProductDescription</div>
                             <span>@item.Price.ToString("C") </span>
+                            <input @oninput="() => UpdateQty_Input(item.Id)"
+                                type="number" @bind="@item.Qty" />
+                            <button data-itemId="@item.Id" class="btn btn-info btn-sm update-qty"
+                                @onclick="(() => UpdateQtyCartItem_Click(item.Id, item.Qty))"
+                            >Update Quantity</button>
                             <div>
                                 <button @onclick ="(() => DeleteCartItem_Click(item.Id))"
-                                class="btn btn-danger sm"> <TrashIcon /> </button>
+                                        class="btn btn-danger sm">
+                                    <TrashIcon />
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -38,7 +45,7 @@ else
             <div class="col-md-3">
                 <h5>Cart Summary</h5>
                 <div class="mt-2">
-                    <div> Total - </div>
+                    <div> Total - (@TotalQuantity items)&nbsp; <b>@TotalPrice</b> </div>
                     <a href="#" class="btn btn-success">
                         <span class="oi oi-credit-card"></span>&nbsp; Proceed to Checkout
                     </a>
