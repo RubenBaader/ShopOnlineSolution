@@ -41,7 +41,13 @@
                 createOrder: function (data, actions) {
 
                     purchase_units[0].description = description.value;
-                    purchase_units[0].amount.value = amount.value;
+
+                    /** I18n: English uses points to denote decimal numbers, most non-English EU-countries use comma.
+                     *  Calling .replace(',', '.') on decimal-separated number returns an identical string
+                     *  The input field value does not separate thousands with symbols, so large numbers are accounted for.
+                     */
+                    purchase_units[0].amount.value = amount.value.toString().replace(',', '.');
+
 
                     return actions.order.create({
                         purchase_units: purchase_units,

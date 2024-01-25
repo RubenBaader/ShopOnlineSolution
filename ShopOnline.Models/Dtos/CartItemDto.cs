@@ -15,7 +15,7 @@ namespace ShopOnline.Models.Dtos
         public string ProductDescription { get; set; }
         public string ProductImageURL { get; set; }
         public decimal Price { get; set; }
-        public decimal ToTalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
         public int Qty { get; set; }
 
     }

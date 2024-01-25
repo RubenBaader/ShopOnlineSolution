@@ -66,7 +66,7 @@ namespace ShopOnline.Web.Pages
                     if (item != null)
                     {
                         item.Qty = 1;
-                        item.ToTalPrice = item.Price;
+                        item.TotalPrice = item.Price;
                     }
                 }
             }
@@ -94,12 +94,12 @@ namespace ShopOnline.Web.Pages
 
             if (item != null)
             {
-                item.ToTalPrice = cartItemDto.Price * cartItemDto.Qty;
+                item.TotalPrice = cartItemDto.Price * cartItemDto.Qty;
             }
         }
         private void SetTotalPrice()
         {
-            TotalPrice = this.ShoppingCartItems.Sum(p => p.ToTalPrice).ToString("C");
+            TotalPrice = this.ShoppingCartItems.Sum(p => p.TotalPrice).ToString("C");
         }
         private void SetTotalQuantity()
         {

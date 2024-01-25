@@ -59,7 +59,7 @@ namespace ShopOnline.Api.Extensions
                         Price = product.Price,
                         CartId = cartItem.CartId,
                         Qty = cartItem.Qty,
-                        ToTalPrice = product.Price * cartItem.Qty,
+                        TotalPrice = product.Price * cartItem.Qty,
                     }).ToList();
         }
 
@@ -77,7 +77,7 @@ namespace ShopOnline.Api.Extensions
                         Price = product.Price,
                         CartId = cartItem.CartId,
                         Qty = cartItem.Qty,
-                        ToTalPrice = product.Price * cartItem.Qty,
+                        TotalPrice = product.Price * cartItem.Qty,
                    };
         }
     }
