@@ -15,6 +15,7 @@ namespace ShopOnline.Web.Pages
         protected IEnumerable<CartItemDto> ShoppingCartItems { get; set; }
         protected int TotalQty { get; set; }
         protected decimal PaymentAmount { get; set; }
+        protected string PaymentString { get; set; }
         protected string PaymentDescription { get; set; }
 
         protected string DisplayButtons { get; set; } = "block";
