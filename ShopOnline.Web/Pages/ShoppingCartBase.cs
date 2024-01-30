@@ -11,6 +11,8 @@ namespace ShopOnline.Web.Pages
         public IJSRuntime Js {  get; set; }
         [Inject]
         public IShoppingCartService ShoppingCartService { get; set; }
+        [Inject]
+        public IManageCartItemsLocalStorageService ManageCartItemsLocalStorageService { get; set; }
 
         public List<CartItemDto> ShoppingCartItems { get; set; }
 
@@ -23,7 +25,7 @@ namespace ShopOnline.Web.Pages
         {
             try
             {
-                ShoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
+                ShoppingCartItems = await ManageCartItemsLocalStorageService.GetCollection();
                 CartChanged();
             }
             catch (Exception Ex)
@@ -54,7 +56,7 @@ namespace ShopOnline.Web.Pages
 
                     var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(updateItemDto);
 
-                    UpdateTotalItemPrice(returnedUpdateItemDto);
+                    await UpdateTotalItemPrice(returnedUpdateItemDto);
 
                     CartChanged();
 
@@ -88,7 +90,7 @@ namespace ShopOnline.Web.Pages
             SetTotalQuantity();
         }
 
-        private void UpdateTotalItemPrice(CartItemDto cartItemDto)
+        private async Task UpdateTotalItemPrice(CartItemDto cartItemDto)
         {
             var item = GetCartItem(cartItemDto.Id);
 
@@ -96,6 +98,8 @@ namespace ShopOnline.Web.Pages
             {
                 item.TotalPrice = cartItemDto.Price * cartItemDto.Qty;
             }
+
+            await ManageCartItemsLocalStorageService.SaveCollection(ShoppingCartItems);
         }
         private void SetTotalPrice()
         {
@@ -110,11 +114,13 @@ namespace ShopOnline.Web.Pages
             return ShoppingCartItems.FirstOrDefault(i => i.Id == id);
         }
 
-        private void RemoveCartItem (int id )
+        private async Task RemoveCartItem (int id )
         {
             var cartItemDto = GetCartItem(id);
 
             ShoppingCartItems.Remove(cartItemDto);
+
+            await ManageCartItemsLocalStorageService.SaveCollection(ShoppingCartItems);
         }
 
         private void CartChanged()
