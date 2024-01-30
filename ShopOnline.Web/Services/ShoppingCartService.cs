@@ -74,7 +74,7 @@ namespace ShopOnline.Web.Services
             }
         }
 
-        async Task<CartItemDto> IShoppingCartService.DeleteItem(int id)
+        public async Task<CartItemDto> DeleteItem(int id)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace ShopOnline.Web.Services
                 OnShoppingCartChanged.Invoke(totalQty);
             }
         }
-        async Task<CartItemDto> IShoppingCartService.UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
+        public async Task<CartItemDto> UpdateQty(CartItemQtyUpdateDto cartItemQtyUpdateDto)
         {
             try
             {
